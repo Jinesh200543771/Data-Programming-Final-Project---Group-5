@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		
+		<title>Weather Prediction - Data Programming Project</title>
+
+		<!-- Loading third party fonts -->
+		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+		<link href="{{url_for('static',filename='fonts/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+		
+		<!-- Loading main css file -->
+		<link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+		
+		<!--[if lt IE 9]>
+		<script src="js/ie-support/html5.js"></script>
+		<script src="js/ie-support/respond.js"></script>
+		<![endif]-->
+
+	</head>
+
+
+	<body>
+		
+		<div class="site-content">
+			<div class="site-header">
+				<div class="container">
+					<a href="index.html" class="branding">
+						<img src="{{url_for('static',filename='images/logo.png')}}" alt="" class="logo">
+						<div class="logo-type">
+							<h1 class="site-title">Data Programing Project </h1>
+							<small class="site-description">Group 5</small>
+						</div>
+					</a>
+
+					<!-- Default snippet for navigation -->
+					<div class="main-navigation">
+						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+						<ul class="menu">
+							<li class="menu-item current-menu-item"><a href="index">Home</a></li>
+							<li class="menu-item"><a href="data">View All Data</a></li>
+							<li class="menu-item"><a href="charts">View Charts</a></li>
+							<li class="menu-item"><a href="team">Our Team</a></li>
+						</ul> <!-- .menu -->
+					</div> <!-- .main-navigation -->
+
+					<div class="mobile-navigation"></div>
+
+				</div>
+			</div> <!-- .site-header -->
+
+			<div class="hero" data-bg-image=" {{url_for('static',filename='images/georgian-banner.png')}}">
+				<div class="container">
+					
+
+				</div>
+			</div>
+			<div class="forecast-table">
+				<div class="container">
+					<div class="forecast-container">
+						<div class="today forecast">
+							<div class="forecast-header">
+								<div class="day">2023-04-17</div>
+								<div class="date">09:18</div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="location">New York</div>
+								<div class="degree">
+									<div class="num">10.9<sup>o</sup>C</div>
+									<div class="forecast-icon">
+										<img src="{{url_for('static',filename='images/icons/icon-3.svg')}}" alt="" width=90>
+									</div>	
+								</div>
+								<span><img src="{{url_for('static',filename='images/icon-umberella.png')}}" alt="">32%</span>
+								<span><img src="{{url_for('static',filename='images/icon-wind.png')}}" alt="">10.42km/h</span>
+								<span><img src="{{url_for('static',filename='images/icon-compass.png')}}" alt="">North</span>
+							</div>
+						</div>
+						<div class="forecast">
+							<div class="forecast-header">
+								<div class="day">16-04-2023</div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="forecast-icon">
+									
+									<img src="{{url_for('static',filename='images/icons/icon-3.svg')}}" alt="" width=48>
+								</div>
+								<div class="degree">10.4<sup>o</sup>C</div>
+								<small>6.5<sup>o</sup></small>
+							</div>
+						</div>
+						<div class="forecast">
+							<div class="forecast-header">
+								<div class="day">15-04-2023</div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="forecast-icon">
+									<img src="{{url_for('static',filename='images/icons/icon-5.svg')}}" alt="" width=48>
+								</div>
+								<div class="degree">9.9<sup>o</sup>C</div>
+								<small>5.9<sup>o</sup></small>
+							</div>
+						</div>
+						<div class="forecast">
+							<div class="forecast-header">
+								<div class="day">14-04-2023</div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="forecast-icon">
+									<img src="{{url_for('static',filename='images/icons/icon-7.svg')}}" alt="" width=48>
+								</div>
+								<div class="degree">8.9<sup>o</sup>C</div>
+								<small>7.8<sup>o</sup></small>
+							</div>
+						</div>
+						<div class="forecast">
+							<div class="forecast-header">
+								<div class="day">13-04-2023</div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="forecast-icon">
+									<img src="{{url_for('static',filename='images/icons/icon-12.svg')}}" alt="" width=48>
+								</div>
+								<div class="degree">11.2<sup>o</sup>C</div>
+								<small>6.9<sup>o</sup></small>
+							</div>
+						</div>
+						<div class="forecast">
+							<div class="forecast-header">
+								<div class="day">12-04-2023</div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="forecast-icon">
+									<img src="{{url_for('static',filename='images/icons/icon-13.svg')}}" alt="" width=48>
+								</div>
+								<div class="degree">23<sup>o</sup>C</div>
+								<small>18<sup>o</sup></small>
+							</div>
+						</div>
+						<div class="forecast">
+							<div class="forecast-header">
+								<div class="day">11-04-2023</div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="forecast-icon">
+									<img src="{{url_for('static',filename='images/icons/icon-14.svg')}}" alt="" width=48>
+								</div>
+								<div class="degree">13.7<sup>o</sup>C</div>
+								<small>9.8<sup>o</sup></small>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<main class="main-content">
+				<div class="fullwidth-block">
+					<div class="container">
+						<h2 class="section-title">New York City </h2>
+						<div class="row">
+							<div class="col-md-3 col-sm-6">
+								<div class="live-camera">
+									<figure class="live-camera-cover"><img src="{{url_for('static',filename='images/1.png')}}" alt=""></figure>
+									<h3 class="location">New York</h3>
+									<small class="date">April 10, 8:00 PM</small>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6">
+								<div class="live-camera">
+									<figure class="live-camera-cover"><img src="{{url_for('static',filename='images/2.png')}}" alt=""></figure>
+									<h3 class="location">New York</h3>
+									<small class="date">April 9, 8:00AM</small>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6">
+								<div class="live-camera">
+									<figure class="live-camera-cover"><img src="{{url_for('static',filename='images/3.png')}}" alt=""></figure>
+									<h3 class="location">New York</h3>
+									<small class="date">April 8, 10:00AM</small>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6">
+								<div class="live-camera">
+									<figure class="live-camera-cover"><img src="{{url_for('static',filename='images/4.png')}}" alt=""></figure>
+									<h3 class="location">New York</h3>
+									<small class="date">April 12, 9:00AM</small>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				
+
+				<div class="fullwidth-block" data-bg-color="#262936">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="news">
+									<div class="date">09.04</div>
+									<h3><a href="#">Safety </a></h3>
+									<p>Accurate weather predictions can help people prepare for and respond to extreme weather events, such as hurricanes, tornadoes, and heat waves. This can save lives and reduce property damage.</p>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="news">
+									<div class="date">10.04</div>
+									<h3><a href="#">Agriculture </a></h3>
+									<p>Farmers rely on weather data to make decisions about when to plant, harvest, and irrigate crops. Accurate predictions can help optimize crop yields and reduce the risk of crop failure due to drought or other weather-related events.
+
+									</p>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="news">
+									<div class="date">11.04</div>
+									<h3><a href="#">Transportation </a></h3>
+									<p>Weather conditions can impact transportation systems, such as roads, airports, and ports. Predictions can help transportation planners make decisions about when to deploy resources, such as snowplows or de-icing equipment, to keep roads and runways clear.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="fullwidth-block">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-4">
+								<h2 class="section-title">Application features</h2>
+								<ul class="arrow-feature">
+									<li>
+										<h3>Live Weather Prediction</h3>
+								
+									</li>
+									<li>
+										<h3>Live Data Update</h3>
+										
+									</li>
+									<li>
+										<h3>Accurate Weather Information</h3>
+										
+									</li>
+								</ul>
+							</div>
+							<div class="col-md-4">
+								<h2 class="section-title">Weather analyssis</h2>
+								<ul class="arrow-list">
+									<li><a href="#">Weather Update</a></li>
+									<li><a href="#">Wind Speed / Snow Analysis</a></li>
+									<li><a href="#">Cloud Data</a></li>
+									<li><a href="#">UV Index</a></li>
+								
+								</ul>
+							</div>
+							<div class="col-md-4">
+								<h2 class="section-title">NewYork City</h2>
+								<div class="photo-grid">
+									<a href="#"><img src="{{url_for('static',filename='images/1.png')}}" alt="#"></a>
+									<a href="#"><img src="{{url_for('static',filename='images/2.png')}}" alt="#"></a>
+									<a href="#"><img src="{{url_for('static',filename='images/3.png')}}" alt="#"></a>
+									<a href="#"><img src="{{url_for('static',filename='images/4.png')}}" alt="#"></a>
+									<a href="#"><img src="{{url_for('static',filename='images/1.png')}}" alt="#"></a>
+									<a href="#"><img src="{{url_for('static',filename='images/2.png')}}" alt="#"></a>
+									<a href="#"><img src="{{url_for('static',filename='images/3.png')}}" alt="#"></a>
+									<a href="#"><img src="{{url_for('static',filename='images/4.png')}}" alt="#"></a>
+									<a href="#"><img src="{{url_for('static',filename='images/1.png')}}" alt="#"></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main> <!-- .main-content -->
+
+			<footer class="site-footer">
+				<div class="container">
+					<div class="row">
+						
+						
+					</div>
+
+					<p class="colophon">Copyright 2023 Data Programming Group 5. Designed by Jinesh, Parajkta & Rakesh. All rights reserved</p>
+				</div>
+			</footer> <!-- .site-footer -->
+		</div>
+		
+		
+	
+		<script src="{{url_for('static',filename='js/jquery-1.11.1.min.js')}}"></script>
+		<script src="{{url_for('static',filename='js/plugins.js')}}"></script>
+		<script src="{{url_for('static',filename='js/app.js')}}"></script>
+		
+	</body>
+
+</html>

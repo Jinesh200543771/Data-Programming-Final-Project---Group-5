@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		
+		<title>Weather Prediction - Data Programming Project</title>
+
+		<!-- Loading third party fonts -->
+		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+		<link href="{{url_for('static',filename='fonts/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+		
+		<!-- Loading main css file -->
+		<link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+		
+		<!--[if lt IE 9]>
+		<script src="js/ie-support/html5.js"></script>
+		<script src="js/ie-support/respond.js"></script>
+		<![endif]-->
+
+		<title>Weather Data</title>
+        <title>Temperature Chart</title>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+          google.charts.load('current', {'packages':['corechart']});
+          google.charts.setOnLoadCallback(drawChart);
+      
+          function drawChart() {
+            var dataTable = new google.visualization.DataTable();
+			dataTable.addColumn('string', 'Time');
+			dataTable.addColumn('number', 'Temperature');
+			for (var i = 0; i < data.length; i++) {
+			  var row = [];
+			  row.push(data[i].datetime);
+			  row.push(data[i].temperature);
+			  dataTable.addRow(row);
+			}
+
+var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+chart.draw(dataTable, options);
+      
+            var options = {
+              title: 'Temperature Chart',
+              curveType: 'function',
+              legend: { position: 'bottom' },
+              hAxis: {title: ''},
+              vAxis: {title: 'Temprature'},
+              height: 500,
+              width: 900
+            };
+      
+            var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+
+            google.charts.setOnLoadCallback(drawChart2);
+      function drawChart2() {
+        var data2 = google.visualization.arrayToDataTable([
+          ['Weather Type', 'Count'],
+          ['Scattered clouds', 5],
+          ['Few clouds', 11],
+          ['Clear Sky', 16],
+          ['Broken clouds', 1],
+          ['Overcast clouds', 3]
+        ]);
+        var options2 = {
+          title: 'Weather Types',
+          is3D: true,
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data2, options2);
+      }
+          }
+        </script>
+        <style>
+            	.container {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin: 50px;
+		}
+
+		.line-graph, .pie-chart {
+			width: 45%;
+			height: 500px;
+			border: 1px solid black;
+			padding: 10px;
+			box-sizing: border-box;
+		}
+
+		.line-graph {
+			background-color: lightblue;
+		}
+
+		.pie-chart {
+			background-color: lightgreen;
+		}
+        </style>
+	</head>
+
+
+	<body>
+		
+		
+		<div class="site-content">
+			<div class="site-header">
+				<div class="container">
+					<a href="index.html" class="branding">
+						<img src="{{url_for('static',filename='images/logo.png')}}" alt="" class="logo">
+						<div class="logo-type">
+							<h1 class="site-title">Data Programing Project </h1>
+							<small class="site-description">Group 5</small>
+						</div>
+					</a>
+
+					<!-- Default snippet for navigation -->
+					<div class="main-navigation">
+						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+						<ul class="menu">
+							<li class="menu-item current-menu-item"><a href="index">Home</a></li>
+							<li class="menu-item"><a href="data">View All Data</a></li>
+							<li class="menu-item"><a href="charts">View Charts</a></li>
+							<li class="menu-item"><a href="team">Our Team</a></li>
+						</ul> <!-- .menu -->
+					</div> <!-- .main-navigation -->
+
+					<div class="mobile-navigation"></div>
+
+				</div>
+			</div> <!-- .site-header -->
+
+			<div class="hero" data-bg-image=" {{url_for('static',filename='images/georgian-banner.png')}}">
+				<div class="container">
+					
+
+				</div>
+			</div>
+            <div class="container">
+                <div class="line-graph">
+                    <div id="chart_div" style="width: 800px; height: 400px"></div>
+                </div>
+                <div class="pie-chart">
+                    <div id="piechart_3d" style="width: 500px; height: 500px"></div>
+                </div>
+            </div>
+        
+            
+            
+
+			<footer class="site-footer">
+				<div class="container">
+					<div class="row">
+						
+						
+					</div>
+
+					<p class="colophon">Copyright 2023 Data Programming Group 5. Designed by Jinesh, Parajkta & Rakesh. All rights reserved</p>
+				</div>
+			</footer> <!-- .site-footer -->
+		</div>
+		
+		
+	
+		<script src="{{url_for('static',filename='js/jquery-1.11.1.min.js')}}"></script>
+		<script src="{{url_for('static',filename='js/plugins.js')}}"></script>
+		<script src="{{url_for('static',filename='js/app.js')}}"></script>
+		
+	</body>
+
+</html>

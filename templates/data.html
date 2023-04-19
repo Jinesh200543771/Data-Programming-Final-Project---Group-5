@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		
+		<title>Weather Prediction - Data Programming Project</title>
+
+		<!-- Loading third party fonts -->
+		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+		<link href="{{url_for('static',filename='fonts/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+		
+		<!-- Loading main css file -->
+		<link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+		
+		<!--[if lt IE 9]>
+		<script src="js/ie-support/html5.js"></script>
+		<script src="js/ie-support/respond.js"></script>
+		<![endif]-->
+
+		<title>Weather Data</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body {
+			background-color: black;
+			color: white;
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+			line-height: 1.5;
+			margin: 0;
+			padding: 0;
+		}
+
+		h1 {
+			color: orange;
+			font-size: 24px;
+			font-weight: normal;
+			margin: 20px 0;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		table {
+			background-color: #fff;
+			border-collapse: collapse;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+			margin: 20px auto;
+			max-width: 100%;
+			width: 100%;
+		}
+
+		th,
+		td {
+			border-bottom: 1px solid #ddd;
+			color:black;
+			padding: 10px;
+			text-align: left;
+		}
+
+		th {
+			background-color: orange;
+			color: #fff;
+			font-weight: normal;
+			text-transform: uppercase;
+		}
+
+		@media only screen and (max-width: 600px) {
+			table {
+				border: none;
+			}
+
+			table td,
+			table th {
+				border: none;
+				display: block;
+				padding: 10px;
+				text-align: left;
+			}
+
+			table td {
+				border-top: 1px solid #ddd;
+			}
+		}
+	</style>
+
+	</head>
+
+
+	<body>
+		
+		<div class="site-content">
+			<div class="site-header">
+				<div class="container">
+					<a href="index.html" class="branding">
+						<img src="{{url_for('static',filename='images/logo.png')}}" alt="" class="logo">
+						<div class="logo-type">
+							<h1 class="site-title">Data Programing Project </h1>
+							<small class="site-description">Group 5</small>
+						</div>
+					</a>
+
+					<!-- Default snippet for navigation -->
+					<div class="main-navigation">
+						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+						<ul class="menu">
+							<li class="menu-item current-menu-item"><a href="index">Home</a></li>
+							<li class="menu-item"><a href="data">View All Data</a></li>
+							<li class="menu-item"><a href="charts">View Charts</a></li>
+							<li class="menu-item"><a href="team">Our Team</a></li>
+						</ul> <!-- .menu -->
+					</div> <!-- .main-navigation -->
+
+					<div class="mobile-navigation"></div>
+
+				</div>
+			</div> <!-- .site-header -->
+
+		
+			
+			<h1>Weather Data Through Mongo DB - Data Programming Project</h1>
+			  <body>
+    <table id="data-table">
+      <thead>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.8/xlsx.full.min.js"></script>
+    <script>
+      // fetch data from Excel file
+      fetch('data.xlsx')
+        .then(response => response.arrayBuffer())
+        .then(buffer => {
+          // convert Excel data to JSON
+          const workbook = XLSX.read(buffer, { type: 'array' });
+          const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+          const data = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+
+          // build HTML table headers
+          const headers = data.shift();
+          const htmlHeaders = headers.map(header => `<th>${header}</th>`).join('');
+          const thead = document.querySelector('#data-table thead');
+          thead.innerHTML = `<tr>${htmlHeaders}</tr>`;
+
+          // build HTML table rows
+          const htmlRows = data.map(row => {
+            const cells = row.map(cell => `<td>${cell}</td>`).join('');
+            return `<tr>${cells}</tr>`;
+          }).join('');
+
+          // insert HTML table rows into table body
+          const tbody = document.querySelector('#data-table tbody');
+          tbody.innerHTML = htmlRows;
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    </script>
+  </body>
+</html>
+			
+
+			<footer class="site-footer">
+				<div class="container">
+					<div class="row">
+						
+						
+					</div>
+
+					<p class="colophon">Copyright 2023 Data Programming Group 5. Designed by Jinesh, Parajkta & Rakesh. All rights reserved</p>
+				</div>
+			</footer> <!-- .site-footer -->
+		</div>
+		
+		
+	
+		<script src="{{url_for('static',filename='js/jquery-1.11.1.min.js')}}"></script>
+		<script src="{{url_for('static',filename='js/plugins.js')}}"></script>
+		<script src="{{url_for('static',filename='js/app.js')}}"></script>
+		
+	</body>
+
+</html>
